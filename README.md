@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# Infyniq
 
-## Project info
+**Infyniq** is an advanced AI platform that transforms the way you interact with your data. Upload any kind of data — Excel, CSV, PDF, databases, or text — and instantly get human-like answers to your questions. Think of it as your private ChatGPT, trained entirely on your own information.
 
-**URL**: https://lovable.dev/projects/428a0f65-3688-43e4-81c9-81aa0ee9b0dd
+---
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Universal Data Compatibility**  
+  Work with Excel, CSV, PDFs, databases, or plain text.
 
-**Use Lovable**
+- **Instant AI-Powered Insights**  
+  Ask any question about your data and get accurate, context-aware answers in seconds.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/428a0f65-3688-43e4-81c9-81aa0ee9b0dd) and start prompting.
+- **No Code Required**  
+  Transform raw data into actionable insights, visualizations, and decisions without writing a single line of code.
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Human-Like Responses**  
+  Receive intelligent, conversational answers that are easy to understand.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## How It Works
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Upload Your Data**  
+   Simply provide your data files or connect your database.
 
-Follow these steps:
+2. **Ask Anything**  
+   Type your question into Infyniq’s interface.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Get Instant Insights**  
+   Receive clear, human-like responses and visual insights derived from your data.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Why Infyniq?
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Infyniq turns complex datasets into meaningful information effortlessly. No more manual data analysis or struggling with spreadsheets — just ask and know.
 
-**Edit a file directly in GitHub**
+- **Faster Decision-Making**  
+- **Better Understanding of Your Data**  
+- **Unlimited Potential** – Infyniq adapts to any dataset.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Installation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+*(Optional: Add installation instructions if you plan to provide a self-hosted version)*
 
-## What technologies are used for this project?
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/infyniq.git
 
-This project is built with:
+# Install dependencies
+npm install
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/428a0f65-3688-43e4-81c9-81aa0ee9b0dd) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# Start the app
+npm start
