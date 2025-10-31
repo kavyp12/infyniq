@@ -5,6 +5,7 @@ import { ResponsiveLine } from '@nivo/line';
 const Product = () => {
   const [activeSection, setActiveSection] = useState(0);
   const [chartProgress, setChartProgress] = useState(0);
+  const [activeDataTab, setActiveDataTab] = useState('IMPACT'); // <-- ADDED THIS STATE
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -27,12 +28,6 @@ const Product = () => {
       subtitle: 'Let your data speak to you',
       description: 'Set up custom Daily Summaries and Email Notifications that proactively analyze your data and highlight critical anomalies, trends, and key drivers.',
       image: 'proactive',
-      icons: [
-        { Icon: Mail, color: '#EA4335' },
-        { Icon: MessageSquare, color: '#34A853' },
-        { Icon: Video, color: '#4285F4' },
-        { Icon: Calendar, color: '#FBBC04' }
-      ]
     },
     {
       title: 'Freely explore your data',
@@ -215,17 +210,6 @@ const Product = () => {
                     <div className="text-xs text-purple-100">Detailed Breakdown</div>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  {sections[0].icons.map((item, i) => (
-                    <div 
-                      key={i} 
-                      className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md float-animation"
-                      style={{ animationDelay: `${i * 0.2}s` }}
-                    >
-                      <item.Icon className="w-5 h-5" style={{ color: item.color }} />
-                    </div>
-                  ))}
-                </div>
               </div>
 
               {/* Content */}
@@ -380,120 +364,240 @@ const Product = () => {
           <div className="w-full lg:w-[40%] mt-12 lg:mt-0 slide-in-right">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
               
+              {/* === vvv REPLACED THIS SECTION vvv === */}
               {/* Header Tabs */}
               <div className="bg-gray-100 px-6 py-3 border-b border-gray-200">
                 <div className="flex items-center gap-6 text-sm">
-                  <button className="font-semibold text-gray-900 border-b-2 border-indigo-600 pb-2">IMPACT #1</button>
-                  <button className="font-medium text-gray-500 hover:text-gray-700">VALUE</button>
-                  <button className="font-medium text-gray-500 hover:text-gray-700">CHANGE</button>
-                  <button className="font-medium text-gray-500 hover:text-gray-700">EVENTS</button>
-                  <button className="font-medium text-gray-500 hover:text-gray-700">DRILLLINE</button>
+                  <button 
+                    onClick={() => setActiveDataTab('IMPACT')}
+                    className={`pb-2 ${activeDataTab === 'IMPACT' ? 'font-semibold text-gray-900 border-b-2 border-indigo-600' : 'font-medium text-gray-500 hover:text-gray-700'}`}
+                  >
+                    IMPACT #1
+                  </button>
+                  <button 
+                    onClick={() => setActiveDataTab('VALUE')}
+                    className={`pb-2 ${activeDataTab === 'VALUE' ? 'font-semibold text-gray-900 border-b-2 border-indigo-600' : 'font-medium text-gray-500 hover:text-gray-700'}`}
+                  >
+                    VALUE
+                  </button>
+                  <button 
+                    onClick={() => setActiveDataTab('CHANGE')}
+                    className={`pb-2 ${activeDataTab === 'CHANGE' ? 'font-semibold text-gray-900 border-b-2 border-indigo-600' : 'font-medium text-gray-500 hover:text-gray-700'}`}
+                  >
+                    CHANGE
+                  </button>
+                  <button 
+                    onClick={() => setActiveDataTab('EVENTS')}
+                    className={`pb-2 ${activeDataTab === 'EVENTS' ? 'font-semibold text-gray-900 border-b-2 border-indigo-600' : 'font-medium text-gray-500 hover:text-gray-700'}`}
+                  >
+                    EVENTS
+                  </button>
+                  <button 
+                    onClick={() => setActiveDataTab('DRILLLINE')}
+                    className={`pb-2 ${activeDataTab === 'DRILLLINE' ? 'font-semibold text-gray-900 border-b-2 border-indigo-600' : 'font-medium text-gray-500 hover:text-gray-700'}`}
+                  >
+                    DRILLLINE
+                  </button>
                 </div>
               </div>
+              {/* === ^^^ REPLACED THIS SECTION ^^^ === */}
 
+
+              {/* === vvv ADDED WRAPPER AND NEW CONTENT vvv === */}
               {/* Content */}
-              <div className="p-6">
-                <div className="mb-4">
-                  <div className="text-sm font-bold text-gray-900 mb-1">Revenue <span className="text-green-600">+16.41%</span></div>
-                  <div className="text-xs text-gray-600">$1.56m <span className="text-green-600">+$1.16m</span> 16</div>
-                </div>
+              {activeDataTab === 'IMPACT' && (
+                <div className="p-6">
+                  <div className="mb-4">
+                    <div className="text-sm font-bold text-gray-900 mb-1">Revenue <span className="text-green-600">+16.41%</span></div>
+                    <div className="text-xs text-gray-600">$1.56m <span className="text-green-600">+$1.16m</span> 16</div>
+                  </div>
 
-                <div className="mb-6">
-                  <div className="text-sm font-bold text-gray-700 mb-2">Browser: Chrome <span className="text-red-600">+18.67%</span></div>
-                  <div className="h-40 mb-4">
-                    <ResponsiveLine
-                      data={[{
-                        id: "trend",
-                        data: [
-                          { x: "Jul 1", y: 45 },
-                          { x: "Jul 8", y: 52 },
-                          { x: "Jul 15", y: 65 },
-                          { x: "Jul 22", y: 75 },
-                          { x: "Jul 29", y: 85 },
-                          { x: "Aug 5", y: 82 },
-                          { x: "Aug 12", y: 78 }
-                        ]
-                      }]}
-                      margin={{ top: 10, right: 10, bottom: 40, left: 40 }}
-                      xScale={{ type: 'point' }}
-                      yScale={{ type: 'linear', min: 0, max: 100 }}
-                      curve="natural"
-                      colors={['#f59e0b']}
-                      pointSize={0}
-                      enableArea={true}
-                      areaOpacity={0.2}
-                      useMesh={true}
-                      enableGridX={false}
-                      axisBottom={{
-                        tickSize: 0,
-                        tickPadding: 8,
-                        tickRotation: 0
-                      }}
-                      axisLeft={{
-                        tickSize: 0,
-                        tickPadding: 8
-                      }}
-                      theme={{
-                        axis: {
-                          ticks: {
-                            text: { fontSize: 9, fill: '#9ca3af' }
+                  <div className="mb-6">
+                    <div className="text-sm font-bold text-gray-700 mb-2">Browser: Chrome <span className="text-red-600">+18.67%</span></div>
+                    <div className="h-40 mb-4">
+                      <ResponsiveLine
+                        data={[{
+                          id: "trend",
+                          data: [
+                            { x: "Jul 1", y: 45 },
+                            { x: "Jul 8", y: 52 },
+                            { x: "Jul 15", y: 65 },
+                            { x: "Jul 22", y: 75 },
+                            { x: "Jul 29", y: 85 },
+                            { x: "Aug 5", y: 82 },
+                            { x: "Aug 12", y: 78 }
+                          ]
+                        }]}
+                        margin={{ top: 10, right: 10, bottom: 40, left: 40 }}
+                        xScale={{ type: 'point' }}
+                        yScale={{ type: 'linear', min: 0, max: 100 }}
+                        curve="natural"
+                        colors={['#f59e0b']}
+                        pointSize={0}
+                        enableArea={true}
+                        areaOpacity={0.2}
+                        useMesh={true}
+                        enableGridX={false}
+                        axisBottom={{
+                          tickSize: 0,
+                          tickPadding: 8,
+                          tickRotation: 0
+                        }}
+                        axisLeft={{
+                          tickSize: 0,
+                          tickPadding: 8
+                        }}
+                        theme={{
+                          axis: {
+                            ticks: {
+                              text: { fontSize: 9, fill: '#9ca3af' }
+                            }
                           }
-                        }
-                      }}
-                    />
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Table */}
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-gray-50 border-y border-gray-200">
+                        <tr>
+                          <th className="text-left py-2 px-3 font-semibold text-gray-700">Key Drivers</th>
+                          <th className="text-right py-2 px-3 font-semibold text-gray-700">Related metrics</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        <tr>
+                          <td className="py-3 px-3 font-medium text-gray-900">United States (US)</td>
+                          <td className="py-3 px-3 text-right">
+                            <span className="text-green-600 font-bold">+ $2.32m</span>
+                            <span className="text-gray-500 ml-2">$8.66m</span>
+                            <span className="text-green-600 ml-2">+ $1.12m</span>
+                            <span className="text-gray-500 ml-2">16</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 px-3 font-medium text-gray-900">Mexico (MX)</td>
+                          <td className="py-3 px-3 text-right">
+                            <span className="text-green-600 font-bold">+ $2.89m</span>
+                            <span className="text-gray-500 ml-2">$2.89m</span>
+                            <span className="text-green-600 ml-2">+ $2.89m</span>
+                          </td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="py-3 px-3 text-gray-500">Social Engagement Type: Not Socially Engaged</td>
+                          <td className="py-3 px-3 text-right text-gray-400">+$1.32k +$1.33k +$1.18k</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="py-3 px-3 text-gray-500">Time On Site Bucket: 901+ seconds</td>
+                          <td className="py-3 px-3 text-right text-gray-400">+$2.41k +$1.53k +$7.89k</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 px-3 font-medium text-gray-900">Country: United States (US)</td>
+                          <td className="py-3 px-3 text-right">
+                            <span className="text-gray-500">$5.78k</span>
+                            <span className="text-green-600 ml-2">+$629k</span>
+                          </td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="py-3 px-3 text-gray-500">Traffic Domain source (Including direct traffic)</td>
+                          <td className="py-3 px-3 text-right text-gray-400">+$1.10k +$880k</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
+              )}
 
-                {/* Table */}
-                <div className="overflow-x-auto">
-                  <table className="w-full text-xs">
-                    <thead className="bg-gray-50 border-y border-gray-200">
-                      <tr>
-                        <th className="text-left py-2 px-3 font-semibold text-gray-700">Key Drivers</th>
-                        <th className="text-right py-2 px-3 font-semibold text-gray-700">Related metrics</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200">
-                      <tr>
-                        <td className="py-3 px-3 font-medium text-gray-900">United States (US)</td>
-                        <td className="py-3 px-3 text-right">
-                          <span className="text-green-600 font-bold">+ $2.32m</span>
-                          <span className="text-gray-500 ml-2">$8.66m</span>
-                          <span className="text-green-600 ml-2">+ $1.12m</span>
-                          <span className="text-gray-500 ml-2">16</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="py-3 px-3 font-medium text-gray-900">Mexico (MX)</td>
-                        <td className="py-3 px-3 text-right">
-                          <span className="text-green-600 font-bold">+ $2.89m</span>
-                          <span className="text-gray-500 ml-2">$2.89m</span>
-                          <span className="text-green-600 ml-2">+ $2.89m</span>
-                        </td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="py-3 px-3 text-gray-500">Social Engagement Type: Not Socially Engaged</td>
-                        <td className="py-3 px-3 text-right text-gray-400">+$1.32k +$1.33k +$1.18k</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="py-3 px-3 text-gray-500">Time On Site Bucket: 901+ seconds</td>
-                        <td className="py-3 px-3 text-right text-gray-400">+$2.41k +$1.53k +$7.89k</td>
-                      </tr>
-                      <tr>
-                        <td className="py-3 px-3 font-medium text-gray-900">Country: United States (US)</td>
-                        <td className="py-3 px-3 text-right">
-                          <span className="text-gray-500">$5.78k</span>
-                          <span className="text-green-600 ml-2">+$629k</span>
-                        </td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="py-3 px-3 text-gray-500">Traffic Domain source (Including direct traffic)</td>
-                        <td className="py-3 px-3 text-right text-gray-400">+$1.10k +$880k</td>
-                      </tr>
-                    </tbody>
-                  </table>
+              {/* VALUE Tab Content */}
+              {activeDataTab === 'VALUE' && (
+                <div className="p-6 h-[500px]">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Value Analysis</h4>
+                  <p className="text-sm text-gray-600 mb-4">Detailed breakdown of customer lifetime value and average order value.</p>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-gray-800">Average Lifetime Value (LTV)</span>
+                      <span className="text-lg font-bold text-green-600">$452.10</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-medium text-gray-800">Average Order Value (AOV)</span>
+                      <span className="text-lg font-bold text-indigo-600">$88.50</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {/* CHANGE Tab Content */}
+              {activeDataTab === 'CHANGE' && (
+                <div className="p-6 h-[500px]">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Change Over Time</h4>
+                  <p className="text-sm text-gray-600 mb-4">Analysis of week-over-week and month-over-month metric changes.</p>
+                  <ul className="space-y-3">
+                    <li className="flex justify-between p-3 bg-gray-50 rounded-lg">
+                      <span className="text-sm font-medium text-gray-800">Weekly Revenue Change</span>
+                      <span className="text-sm font-bold text-red-600">▼ -4.2%</span>
+                    </li>
+                    <li className="flex justify-between p-3 bg-gray-50 rounded-lg">
+                      <span className="text-sm font-medium text-gray-800">Monthly User Acquisition</span>
+                      <span className="text-sm font-bold text-green-600">▲ +12.8%</span>
+                    </li>
+                    <li className="flex justify-between p-3 bg-gray-50 rounded-lg">
+                      <span className="text-sm font-medium text-gray-800">Avg. Session Duration</span>
+                      <span className="text-sm font-bold text-green-600">▲ +1m 12s</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+
+              {/* EVENTS Tab Content */}
+              {activeDataTab === 'EVENTS' && (
+                <div className="p-6 h-[500px]">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Key Events</h4>
+                  <p className="text-sm text-gray-600 mb-4">Timeline of significant events and their impact on data.</p>
+
+                  <div className="border-l-2 border-indigo-500 pl-4 space-y-4">
+                    <div>
+                      <span className="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-0.5 rounded">Oct 25, 2025</span>
+                      <p className="text-sm text-gray-700 mt-1">Launched "Fall Sale" email campaign. <span className="text-green-600">(+15% transactions)</span></p>
+                    </div>
+                    <div>
+                      <span className="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded">Oct 22, 2025</span>
+                      <p className="text-sm text-gray-700 mt-1">Server outage reported. <span className="text-red-600">(-30% site traffic)</span></p>
+                    </div>
+                    <div>
+                      <span className="text-xs bg-gray-100 text-gray-700 font-semibold px-2 py-0.5 rounded">Oct 20, 2025</span>
+                      <p className="text-sm text-gray-700 mt-1">New product line "Home Office" added.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* DRILLLINE Tab Content */}
+              {activeDataTab === 'DRILLLINE' && (
+                <div className="p-6 h-[500px]">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Drill Line View</h4>
+                  <p className="text-sm text-gray-600 mb-4">Explore hierarchical data by drilling down into specific segments.</p>
+                  <div className="text-sm">
+                    <div className="font-medium text-gray-800">All Traffic</div>
+                    <div className="pl-4 border-l ml-2">
+                      <div className="font-medium text-gray-700 mt-1">→ Organic Search (45%)</div>
+                      <div className="pl-4 border-l ml-2">
+                        <div className="text-gray-600 mt-1">→ Google (80%)</div>
+                        <div className="text-gray-600 mt-1">→ Bing (20%)</div>
+                      </div>
+                      <div className="font-medium text-gray-700 mt-1">→ Paid Social (30%)</div>
+                      <div className="pl-4 border-l ml-2">
+                        <div className="text-gray-600 mt-1">→ Facebook (60%)</div>
+                        <div className="text-gray-600 mt-1">→ Instagram (40%)</div>
+                      </div>
+                      <div className="font-medium text-gray-700 mt-1">→ Direct (25%)</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* === ^^^ ADDED WRAPPER AND NEW CONTENT ^^^ === */}
+              
             </div>
           </div>
         </div>
