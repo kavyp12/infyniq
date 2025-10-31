@@ -80,7 +80,7 @@ const HowItWorks = () => {
               <div className="w-[18%] min-w-[180px]"> 
                 <div className="bg-slate-900 bg-opacity-60 backdrop-blur-sm border border-slate-700 rounded-xl p-4">
                   <h2 className="text-xl font-bold text-white text-center leading-tight mb-0.5">
-                    Infyniq AI<br />Analyst
+                    datomly AI<br />Analyst
                   </h2>
                   <p className="text-purple-400 text-center text-sm font-semibold">
                     Chat with your AI Analyst

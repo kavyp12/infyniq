@@ -1,20 +1,13 @@
 // footer.tsx
 import React from 'react';
-
-// Simple LogoIcon component
-const LogoIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="40" height="40" rx="8" fill="white"/>
-    <circle cx="20" cy="20" r="8" fill="black"/>
-  </svg>
-);
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Product+Sans&display=swap');
-  
+
         .product-sans {
           font-family: 'Product Sans', sans-serif;
         }
@@ -22,17 +15,29 @@ const Footer = () => {
 
       <footer className="bg-black text-white product-sans py-16 px-6">
         <div className="max-w-7xl mx-auto">
+          
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
             
             {/* Logo and Description Column */}
             <div className="md:col-span-1">
-               <a href="#" className="flex items-center gap-2">
-              <LogoIcon />
-              <span className="text-xl font-semibold text-white">infyniq</span>
-            </a>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Infyniq is a product developed and owned by Infyniq, Inc.
+
+              <Link to="/" className="flex items-center gap-1.5">
+                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                  <img 
+                    src="/datomly logo.png" 
+                    alt="Datomly Logo" 
+                    className="w-8 h-8 object-contain" 
+                  />
+                </div>
+
+                <span className="text-[30px] font-semibold text-white leading-none">
+                  datomly
+                </span>
+              </Link>
+
+              <p className="text-gray-400 text-sm leading-relaxed mt-3">
+                datomly is a product developed and owned by datomly, Inc.
               </p>
 
               {/* Accelerators */}
@@ -140,7 +145,7 @@ const Footer = () => {
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-400 text-sm">
-                © 2025 Infyniq
+                © 2025 datomly
               </p>
               <div className="flex flex-wrap gap-6">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
@@ -158,6 +163,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
         </div>
       </footer>
     </>

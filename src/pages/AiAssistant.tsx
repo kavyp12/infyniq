@@ -333,7 +333,7 @@ const AiAssistant = () => {
     <div className="bg-white text-gray-900 flex flex-col h-full rounded-2xl border border-gray-300 shadow-xl product-sans">
       <header className="border-b border-gray-300 p-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <h1 className="text-lg font-bold text-gray-900">Infyniq AI Assistant</h1>
+          <h1 className="text-lg font-bold text-gray-900">Datomly AI Assistant</h1>
         </div>
         <div className="flex items-center gap-3">
           <button

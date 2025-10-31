@@ -5,8 +5,8 @@ import { LogOut, User, Menu, X } from 'lucide-react';
 const ChevronDownIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -19,20 +19,12 @@ const ChevronDownIcon = () => (
   </svg>
 );
 
-const LogoIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="40" height="40" rx="8" fill="white" />
-    <circle cx="20" cy="20" r="8" fill="black" />
-  </svg>
-);
-
 const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Check authentication status on mount
   useEffect(() => {
     const userId = localStorage.getItem('user_id');
     const email = localStorage.getItem('user_email');
@@ -50,18 +42,12 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Product', hasDropdown: true, href: '/product' },
-    // { name: 'Solutions', hasDropdown: true, href: '#' },
-    // { name: 'Resources', hasDropdown: true, href: '#' },
-    // { name: 'Company', hasDropdown: true, href: '#' },
-    // { name: 'Pricing', hasDropdown: false, href: '#' },
   ];
 
-  // Add Dashboard link only for authenticated users
   if (isAuthenticated) {
     navLinks.push({ name: 'Dashboard', hasDropdown: false, href: '/dashboard' });
   }
 
-  // Add AI Assistant link
   navLinks.push({ name: 'AI Assistant', hasDropdown: false, href: '/AIassistant' });
 
   return (
@@ -76,15 +62,25 @@ const Navbar = () => {
       <nav className="bg-black sticky top-0 z-50 product-sans">
         <div className="mx-auto max-w-7xl px-8">
           <div className="flex h-16 items-center justify-between">
+            
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <LogoIcon />
-              <span className="text-xl font-semibold text-white">infyniq</span>
+            <Link to="/" className="flex items-center gap-1.5">
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                <img 
+                  src="/datomly logo.png" 
+                  alt="Datomly Logo" 
+                  className="w-8 h-8 object-contain" 
+                />
+              </div>
+
+              <span className="text-[30px] font-semibold text-white leading-none">
+                datomly
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex flex-1 justify-center">
-              <ul className="flex items-center gap-10 text-sm font-medium text-white">
+              <ul className="flex items-center gap-10 text-[18px] font-medium text-white">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link 
@@ -100,38 +96,34 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Auth Section */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-6">
               {isAuthenticated ? (
                 <>
-                  {/* User Info */}
-                  <div className="flex items-center gap-2 text-gray-300 text-sm">
-                    <User className="w-4 h-4" />
-                    <span className="max-w-[150px] truncate">{userEmail}</span>
+                  <div className="flex items-center gap-2 text-gray-300 text-[16px]">
+                    <User className="w-5 h-5" />
+                    <span className="max-w-[180px] truncate">{userEmail}</span>
                   </div>
                   
-                  {/* Logout Button */}
                   <button
                     onClick={handleLogout}
-                    className="flex items-center gap-2 rounded-full bg-gray-800 hover:bg-gray-700 px-5 py-2.5 text-sm font-medium text-white transition"
+                    className="flex items-center gap-2 rounded-full bg-gray-800 hover:bg-gray-700 px-6 py-3 text-[16px] font-medium text-white transition"
                   >
-                    <LogOut className="w-4 h-4" />
+                    <LogOut className="w-5 h-5" />
                     Logout
                   </button>
                 </>
               ) : (
                 <>
-                  {/* Sign In Link */}
                   <Link 
                     to="/signin" 
-                    className="text-sm font-medium text-white transition hover:text-gray-300"
+                    className="text-[18px] font-medium text-white transition hover:text-gray-300"
                   >
                     Sign in
                   </Link>
                   
-                  {/* Get Started Button */}
                   <Link
                     to="/signup"
-                    className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:bg-gray-100"
+                    className="rounded-full bg-white px-6 py-3 text-[16px] font-medium text-black transition hover:bg-gray-100"
                   >
                     Get Started
                   </Link>
@@ -145,22 +137,22 @@ const Navbar = () => {
               className="lg:hidden text-white hover:text-gray-300 transition"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-7 h-7" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-7 h-7" />
               )}
             </button>
           </div>
 
-          {/* Mobile Navigation Menu */}
+          {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <div className="lg:hidden py-4 border-t border-gray-800">
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="flex items-center text-sm font-medium text-white hover:text-gray-300 transition"
+                      className="flex items-center text-[18px] font-medium text-white hover:text-gray-300 transition"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
@@ -170,19 +162,18 @@ const Navbar = () => {
                 ))}
               </ul>
 
-              {/* Mobile Auth Section */}
-              <div className="mt-4 pt-4 border-t border-gray-800 space-y-3">
+              <div className="mt-4 pt-4 border-t border-gray-800 space-y-4">
                 {isAuthenticated ? (
                   <>
-                    <div className="flex items-center gap-2 text-gray-300 text-sm">
-                      <User className="w-4 h-4" />
+                    <div className="flex items-center gap-2 text-gray-300 text-[16px]">
+                      <User className="w-5 h-5" />
                       <span className="truncate">{userEmail}</span>
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="w-full flex items-center justify-center gap-2 rounded-full bg-gray-800 hover:bg-gray-700 px-5 py-2.5 text-sm font-medium text-white transition"
+                      className="w-full flex items-center justify-center gap-2 rounded-full bg-gray-800 hover:bg-gray-700 px-6 py-3 text-[16px] font-medium text-white transition"
                     >
-                      <LogOut className="w-4 h-4" />
+                      <LogOut className="w-5 h-5" />
                       Logout
                     </button>
                   </>
@@ -190,14 +181,14 @@ const Navbar = () => {
                   <>
                     <Link
                       to="/signin"
-                      className="block text-center text-sm font-medium text-white hover:text-gray-300 transition"
+                      className="block text-center text-[18px] font-medium text-white hover:text-gray-300 transition"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Sign in
                     </Link>
                     <Link
                       to="/signup"
-                      className="block text-center rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-gray-100 transition"
+                      className="block text-center rounded-full bg-white px-6 py-3 text-[16px] font-medium text-black hover:bg-gray-100 transition"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Get Started

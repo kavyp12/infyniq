@@ -51,7 +51,7 @@ const Product = () => {
     {
       title: 'Executes thousands of queries and statistical tests in milliseconds',
       subtitle: 'Zero hallucinations',
-      description: "Infyniq's unique architecture overcomes the limitations of traditional Generative AI, delivering rapid, trustworthy analytics with zero hallucinations.",
+      description: "datomly's unique architecture overcomes the limitations of traditional Generative AI, delivering rapid, trustworthy analytics with zero hallucinations.",
       image: 'queries',
       showScatter: true
     }
@@ -171,7 +171,7 @@ const Product = () => {
   </h1>
 
   <p className="mt-8 max-w-3xl mx-auto text-xl leading-relaxed text-gray-300 fade-in-up">
-    Infyniq is an advanced AI platform that learns from any kind of data — Excel, CSV, PDF, databases, or text — and gives you instant, intelligent answers. 
+    datomly is an advanced AI platform that learns from any kind of data — Excel, CSV, PDF, databases, or text — and gives you instant, intelligent answers. 
     It’s like having your own private ChatGPT trained on your data, ready to uncover insights, visualize patterns, and drive smarter decisions — all without code.
   </p>
 
@@ -190,7 +190,7 @@ const Product = () => {
               Q&A at Your Fingertips
             </h2>
             <p className="text-lg text-gray-300 leading-relaxed slide-in-left">
-              Know what you're looking for? Simply ask Infyniq in natural language and receive analyst-grade answers in seconds.
+              Know what you're looking for? Simply ask datomly in natural language and receive analyst-grade answers in seconds.
             </p>
           </div>
         </div>
@@ -211,7 +211,7 @@ const Product = () => {
                     <Sparkles className="w-5 h-5 text-purple-600" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-white">Infyniq</div>
+                    <div className="text-sm font-bold text-white">datomly</div>
                     <div className="text-xs text-purple-100">Detailed Breakdown</div>
                   </div>
                 </div>
@@ -681,7 +681,7 @@ const Product = () => {
               href="#"
               className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold transition group"
             >
-              <span className="border-b border-purple-400 group-hover:border-purple-300">Learn more about Infyniq's architecture</span>
+              <span className="border-b border-purple-400 group-hover:border-purple-300">Learn more about datomly's architecture</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <div className="mt-8">

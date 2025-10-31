@@ -183,11 +183,11 @@ const Hero = () => {
             </div>
             
             <h1 className="text-5xl font-extrabold sm:text-6xl md:text-7xl leading-[1.1]">
-              Infyniq — an advanced <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">AI platform</span> that can learn from any kind of data
+              datomly — an advanced <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">AI platform</span> that can learn from any kind of data
             </h1>
 
             <p className="mt-6 max-w-xl text-xl leading-relaxed text-gray-600 sm:mx-auto lg:mx-0">
-              It’s like having your own private ChatGPT trained on your information — just upload your data, ask a question, and Infyniq gives accurate, human-like insights in seconds. Infyniq transforms how people interact with information — turning raw data into intelligent answers, visual insights, and meaningful decisions without a single line of code.
+              It’s like having your own private ChatGPT trained on your information — just upload your data, ask a question, and datomly gives accurate, human-like insights in seconds. datomly transforms how people interact with information — turning raw data into intelligent answers, visual insights, and meaningful decisions without a single line of code.
             </p>
             
             <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
@@ -235,7 +235,7 @@ const Hero = () => {
                       <Brain className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="font-semibold text-sm">Infyniq AI Assistant</div>
+                      <div className="font-semibold text-sm">datomly AI Assistant</div>
                       <div className="text-xs text-slate-300 flex items-center gap-1.5">
                         <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
                         <span>Online</span>
@@ -533,14 +533,14 @@ const Hero = () => {
           <div className="mt-20 grid grid-cols-1 items-center gap-x-16 gap-y-12 lg:grid-cols-2">
             <div className="text-center lg:text-left">
               <h2 className="text-4xl font-extrabold tracking-tight text-slate-800 sm:text-5xl leading-tight">
-                DataGPT is <span style={{color: '#D858A5'}}>not</span>
+                datomly is <span style={{color: '#D858A5'}}>not</span>
                 <br/>
                 Another SQL Wrapper
               </h2>
             </div>
             <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
               <p>
-                DataGPT's AI Analysts doesn't just translate text into a simple SQL query. It develops a plan, executes that plan by making meaningful comparisons and deep dives into the data, and curates the results— transforming a question into meaningful, actionable analysis.
+                datomly's AI Analysts doesn't just translate text into a simple SQL query. It develops a plan, executes that plan by making meaningful comparisons and deep dives into the data, and curates the results— transforming a question into meaningful, actionable analysis.
               </p>
               <p className="font-semibold text-slate-700">
                 The result: Trusted analysis that goes deeper into the most important insights in your data.
