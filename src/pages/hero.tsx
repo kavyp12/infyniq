@@ -1,4 +1,3 @@
-
 // hero.tsx
 import React, { useState, useEffect } from 'react';
 import { Send, TrendingUp, BarChart3, Users, DollarSign, Share2, ThumbsUp, ThumbsDown, Sparkles, Brain } from 'lucide-react';
@@ -66,7 +65,7 @@ const Hero = () => {
       
       return () => clearTimeout(resetTimer);
     }
-  }, [currentStep]);
+  }, [currentStep, chatSequence]);
 
   const animateChart = () => {
     let progress = 0;
@@ -173,7 +172,10 @@ const Hero = () => {
       `}</style>
     
       <section className="bg-gradient-to-br from-slate-50 via-white to-indigo-50 text-gray-900 product-sans">
-        <div className="mx-auto max-w-[1600px] px-6 py-16 sm:py-20 lg:flex lg:items-center lg:gap-20">
+        
+        {/* --- MODIFICATION HERE --- */}
+        {/* Changed py-16 sm:py-20 to pt-8 pb-16 sm:pt-12 sm:pb-20 to reduce top padding */}
+        <div className="mx-auto max-w-[1600px] px-6 pt-8 pb-16 sm:pt-12 sm:pb-20 lg:flex lg:items-center lg:gap-20">
           
           {/* Left Column: Text Content & CTA */}
           <div className="w-full lg:w-[42%] text-center lg:text-left">
@@ -186,8 +188,9 @@ const Hero = () => {
               datomly — an advanced <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">AI platform</span> that can learn from any kind of data
             </h1>
 
+            {/* Shortened paragraph */}
             <p className="mt-6 max-w-xl text-xl leading-relaxed text-gray-600 sm:mx-auto lg:mx-0">
-              It’s like having your own private ChatGPT trained on your information — just upload your data, ask a question, and datomly gives accurate, human-like insights in seconds. datomly transforms how people interact with information — turning raw data into intelligent answers, visual insights, and meaningful decisions without a single line of code.
+              It’s like having your own private ChatGPT trained on your information. Just upload your data, ask a question, and datomly gives accurate, human-like insights in seconds.
             </p>
             
             <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
@@ -206,21 +209,8 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-6 text-center lg:text-left">
-              <div>
-                <div className="text-3xl font-bold text-gray-900">10x</div>
-                <div className="text-sm text-gray-500">Faster Insights</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gray-900">95%</div>
-                <div className="text-sm text-gray-500">Accuracy Rate</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gray-900">50+</div>
-                <div className="text-sm text-gray-500">Data Sources</div>
-              </div>
-            </div>
+            {/* Stats section removed */}
+          
           </div>
 
          {/* Right Column: Classic Animated Chat Interface */}
