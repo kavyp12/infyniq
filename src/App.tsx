@@ -26,6 +26,7 @@ import Dashboard from "@/pages/Dashboard";
 import AiAssistant from "@/pages/AiAssistant";
 import DatabaseSetup from "@/pages/DatabaseSetup";
 import DatabaseDetails from './pages/DatabaseDetails';
+import WaitlistPage from './pages/waitinglist';
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,8 @@ const App = () => {
               }
             />
             <Route path="/product" element={<Product />} />
+            <Route path="/waitinglist" element={<WaitlistPage />} />
+
 
             {/* --- Authentication Routes --- */}
             <Route path="/signin" element={<SignIn />} />
